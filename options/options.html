@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="optionsTitle"></title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="icon-container">
+    <img src="../icons/icon128.png" width="64" height="64" alt="__MSG_extName__">
+  </div>
+  <form id="options-form">
+    <div class="form-group">
+      <div class="header">
+        <label data-i18n="widthLabel"></label>
+        <div class="desc" data-i18n="widthDesc"></div>
+      </div>
+      <div class="range-slider" id="widthSlider" style='--min:200; --max:600;'>
+        <input type="range" id="widthInput" min="200" max="600" step="50">
+        <output id="widthValue"></output>
+        <div class='range-slider__progress'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="header">
+        <label data-i18n="countLabel"></label>
+        <div class="desc" data-i18n="countDesc"></div>
+      </div>
+      <div class="range-slider" id="countSlider" style='--min:1; --max:25;'>
+        <input type="range" id="countInput" min="1" max="25" step="1">
+        <output id="countValue"></output>
+        <div class='range-slider__progress'></div>
+      </div>
+    </div>
+  </form>
+  <script src="options.js"></script>
+</body>
+</html> 

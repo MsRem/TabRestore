@@ -1,0 +1,75 @@
+@import '/styles/ui-range.css';
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon-container {
+  margin: 32px;
+}
+
+#options-form {
+  width: 600px;
+  background-color: #fff;
+  box-shadow: rgba(113, 113, 113, 0.1) 0px 3px 7px;
+  border-radius: 6px;
+}
+
+#options-form > .form-group {
+  padding: 24px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.form-group:not(:last-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.desc {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.range-slider {
+  width: 300px;
+}
+
+#widthValue::after {
+  content: attr(width-value);
+}
+
+#countValue::after {
+  content: attr(count-value);
+}
+
+
+
+

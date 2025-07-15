@@ -1,0 +1,26 @@
+{
+  "extName": {
+    "message": "Tab Restore"
+  },
+  "extDesc": {
+    "message": "helps you quickly reopen recently closed tabs, whether they were closed accidentally or intentionally."
+  },
+  "optionsTitle": {
+    "message": "Options - Tab Restore"
+  },
+  "widthLabel": {
+    "message": "Popup Width"
+  },
+  "widthDesc": {
+    "message": "Popup window width, default 350px"
+  },
+  "countLabel": {
+    "message": "Tab Count"
+  },
+  "countDesc": {
+    "message": "Number of tabs to show, default 10"
+  },
+  "windowTabsLabel": {
+    "message": "tabs"
+  }
+} 

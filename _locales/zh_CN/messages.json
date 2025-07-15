@@ -1,0 +1,26 @@
+{
+  "extName": {
+    "message": "恢复标签页"
+  },
+  "extDesc": {
+    "message": "帮你快速找回误关闭或刚关闭的网页标签页，简单好用，无需复杂设置。"
+  },
+  "optionsTitle": {
+    "message": "选项 - 恢复标签页"
+  },
+  "widthLabel": {
+    "message": "窗口宽度"
+  },
+  "widthDesc": {
+    "message": "弹出窗口宽度，默认350px"
+  },
+  "countLabel": {
+    "message": "标签数量"
+  },
+  "countDesc": {
+    "message": "显示标签数量，默认10条"
+  },
+  "windowTabsLabel": {
+    "message": "个标签页"
+  }
+} 

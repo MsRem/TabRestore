@@ -1,0 +1,10 @@
+{
+  "name": "tab-restore",
+  "version": "1.0.0",
+  "author": "Rem",
+  "license": "ISC",
+  "description": "helps you quickly reopen recently closed tabs, whether they were closed accidentally or intentionally.",
+  "dependencies": {
+    "chrome-types": "^0.1.361"
+  }
+}
