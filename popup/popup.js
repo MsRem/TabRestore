@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 获取最近关闭的标签页
   chrome.sessions.getRecentlyClosed({maxResults: settings.count}, (sessions) => {
     if (sessions.length > 0){
-      // 设置弹窗宽度
-      document.body.style.width = `${settings.width}px`
-
       // 如果只显示一个且是tab，直接恢复
       if (settings.count === 1 && sessions[0].tab) {
         chrome.sessions.restore(sessions[0].tab.sessionId);
       } else {
+        // 设置弹窗宽度
+        document.body.style.width = `${settings.width}px`
+
         renderHistory(sessions);
       }
     }
