@@ -29,9 +29,7 @@ function renderHistory(sessions) {
 
       const img = document.createElement('img');
       img.src = chrome.runtime.getURL(`_favicon/?pageUrl=${encodeURIComponent(session.tab.url)}&size=32`);
-      img.width = 16;
-      img.height = 16;
-      img.style.verticalAlign = 'middle';
+      img.className = 'icon';
       item.appendChild(img);
 
       const title = document.createElement('span');
@@ -42,6 +40,7 @@ function renderHistory(sessions) {
       item.addEventListener('click', () => {
         chrome.sessions.restore(session.tab.sessionId);
       });
+
       list.appendChild(item);
     } else if (session.window) {
       // 窗口项
@@ -51,23 +50,35 @@ function renderHistory(sessions) {
       // 头部
       const header = document.createElement('div');
       header.className = 'window-header';
+
       // 窗口图标
       const winIcon = document.createElement('img');
       winIcon.src = chrome.runtime.getURL('icons/tab.svg');
-      winIcon.width = 16;
-      winIcon.height = 16;
+      winIcon.className = 'icon';
       header.appendChild(winIcon);
+
       // 标题
       const winTitle = document.createElement('span');
       winTitle.className = 'window-title';
       winTitle.textContent = `${session.window.tabs.length} ${chrome.i18n.getMessage('windowTabsLabel')}`;
       header.appendChild(winTitle);
+
       // 展开按钮
       const expandBtn = document.createElement('img');
-      expandBtn.className = 'expand-btn';
+      expandBtn.className = 'icon expand-btn';
       expandBtn.src = chrome.runtime.getURL('icons/down.svg');
-      expandBtn.width = 16;
-      expandBtn.height = 16;
+
+      // 展开/收起逻辑
+      expandBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tabsBox.classList.toggle('expanded');
+        if (tabsBox.classList.contains('expanded')) {
+          expandBtn.src = chrome.runtime.getURL('icons/up.svg');
+        } else {
+          expandBtn.src = chrome.runtime.getURL('icons/down.svg');
+        }
+      });
+
       header.appendChild(expandBtn);
       winItem.appendChild(header);
 
@@ -85,10 +96,9 @@ function renderHistory(sessions) {
         tabDiv.className = 'tab-item';
         const img = document.createElement('img');
         img.src = chrome.runtime.getURL(`_favicon/?pageUrl=${encodeURIComponent(tab.url)}&size=32`);
-        img.width = 16;
-        img.height = 16;
-        img.style.verticalAlign = 'middle';
+        img.className = 'icon';
         tabDiv.appendChild(img);
+
         const title = document.createElement('div');
         title.textContent = tab.title || tab.url;
         title.className = 'title';
@@ -101,16 +111,6 @@ function renderHistory(sessions) {
       });
       winItem.appendChild(tabsBox);
 
-      // 展开/收起逻辑
-      expandBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        tabsBox.classList.toggle('expanded');
-        if (tabsBox.classList.contains('expanded')) {
-          expandBtn.src = chrome.runtime.getURL('icons/up.svg');
-        } else {
-          expandBtn.src = chrome.runtime.getURL('icons/down.svg');
-        }
-      });
       list.appendChild(winItem);
     }
   });
