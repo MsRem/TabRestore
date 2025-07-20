@@ -1,3 +1,4 @@
+@import '/styles/checkbox.css';
 @import '/styles/ui-range.css';
 
 body {
@@ -56,6 +57,7 @@ label {
   font-size: 13px;
   color: #888;
   margin-top: 2px;
+  user-select: none;
 }
 
 .range-slider {
@@ -70,6 +72,6 @@ label {
   content: attr(count-value);
 }
 
-
-
-
+.quick-restore {
+  padding-right: 12px;
+}

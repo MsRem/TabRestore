@@ -16,11 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const countInput = document.getElementById('countInput');
   const countValue = document.getElementById('countValue');
   const countSlider = document.getElementById('countSlider');
+  const quickRestore = document.getElementById('checkboxInput');
 
   // 读取设置
   chrome.storage.sync.get({
     width: 350,
-    count: 10
+    count: 10,
+    quickRestore: false
   }, (items) => {
     widthInput.value = items.width;
     widthValue.setAttribute('width-value', items.width);
@@ -31,12 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     countValue.setAttribute('count-value', items.count);
     countSlider.style.setProperty('--value', items.count);
     countSlider.style.setProperty('--text-value', JSON.stringify(items.count));
+
+    quickRestore.checked = !!items.quickRestore;
   });
 
   function save() {
     chrome.storage.sync.set({
       width: parseInt(widthInput.value),
-      count: parseInt(countInput.value)
+      count: parseInt(countInput.value),
+      quickRestore: !!(quickRestore && quickRestore.checked)
     });
   }
 
@@ -53,4 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     countSlider.style.setProperty('--text-value', JSON.stringify(countInput.value));
     save();
   });
+
+  quickRestore.addEventListener('change', save);
 }); 

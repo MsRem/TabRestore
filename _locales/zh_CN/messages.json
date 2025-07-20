@@ -22,5 +22,11 @@
   },
   "windowTabsLabel": {
     "message": "个标签页"
+  },
+  "quickRestoreLabel": {
+    "message": "快速恢复"
+  },
+  "quickRestoreDesc": {
+    "message": "点击图标立即恢复标签页"
   }
 } 

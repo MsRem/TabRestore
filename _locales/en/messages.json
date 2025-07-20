@@ -22,5 +22,11 @@
   },
   "windowTabsLabel": {
     "message": "tabs"
+  },
+  "quickRestoreLabel": {
+    "message": "Quick Restore"
+  },
+  "quickRestoreDesc": {
+    "message": "Click icon to instantly restore tab"
   }
 } 
