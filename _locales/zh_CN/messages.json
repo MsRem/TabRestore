@@ -12,7 +12,7 @@
     "message": "窗口宽度"
   },
   "widthDesc": {
-    "message": "弹出窗口宽度，默认350px"
+    "message": "弹出窗口宽度，默认300px"
   },
   "countLabel": {
     "message": "标签数量"

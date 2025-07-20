@@ -114,7 +114,7 @@ function renderHistory(sessions) {
 function getSettings() {
   return new Promise(resolve => {
     chrome.storage.sync.get({
-      width: 350,
+      width: 300,
       count: 10,
       quickRestore: false
     }, resolve);

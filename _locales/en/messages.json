@@ -12,7 +12,7 @@
     "message": "Popup Width"
   },
   "widthDesc": {
-    "message": "Popup window width, default 350px"
+    "message": "Popup window width, default 300px"
   },
   "countLabel": {
     "message": "Tab Count"

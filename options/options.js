@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 读取设置
   chrome.storage.sync.get({
-    width: 350,
+    width: 300,
     count: 10,
     quickRestore: false
   }, (items) => {
