@@ -8,8 +8,18 @@ function applyI18n() {
   });
 }
 
+// 应用主题
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  // 同步图标选择器激活状态
+  document.querySelectorAll('.theme-option').forEach(option => {
+    option.classList.toggle('active', option.getAttribute('data-theme') === theme);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   applyI18n();
+  
   const widthInput = document.getElementById('widthInput');
   const widthValue = document.getElementById('widthValue');
   const widthSlider = document.getElementById('widthSlider');
@@ -17,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const countValue = document.getElementById('countValue');
   const countSlider = document.getElementById('countSlider');
   const quickRestore = document.getElementById('checkboxInput');
+  const themeOptions = document.querySelectorAll('.theme-option');
 
   // 读取设置
   chrome.storage.sync.get({
     width: 300,
     count: 10,
-    quickRestore: false
+    quickRestore: false,
+    theme: 'auto'
   }, (items) => {
     widthInput.value = items.width;
     widthValue.setAttribute('width-value', items.width);
@@ -35,13 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     countSlider.style.setProperty('--text-value', JSON.stringify(items.count));
 
     quickRestore.checked = !!items.quickRestore;
+    
+    applyTheme(items.theme);
   });
 
   function save() {
+    const activeTheme = document.querySelector('.theme-option.active')?.getAttribute('data-theme') || 'auto';
     chrome.storage.sync.set({
       width: parseInt(widthInput.value),
       count: parseInt(countInput.value),
-      quickRestore: !!(quickRestore && quickRestore.checked)
+      quickRestore: !!(quickRestore && quickRestore.checked),
+      theme: activeTheme
     });
   }
 
@@ -60,4 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   quickRestore.addEventListener('change', save);
-}); 
+
+  // 主题图标点击
+  themeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      applyTheme(theme);
+      save();
+    });
+  });
+});

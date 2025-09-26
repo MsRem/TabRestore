@@ -27,6 +27,12 @@
     "message": "Quick Restore"
   },
   "quickRestoreDesc": {
-    "message": "Click icon to instantly restore tab"
+    "message": "Restore the most recent tab immediately when clicking the extension icon"
+  },
+  "themeLabel": {
+    "message": "Theme"
+  },
+  "themeDesc": {
+    "message": "Choose interface theme style"
   }
-} 
+}

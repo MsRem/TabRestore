@@ -27,6 +27,12 @@
     "message": "快速恢复"
   },
   "quickRestoreDesc": {
-    "message": "点击图标立即恢复标签页"
+    "message": "点击扩展图标时立即恢复最近的标签页"
+  },
+  "themeLabel": {
+    "message": "主题"
+  },
+  "themeDesc": {
+    "message": "选择界面主题样式"
   }
-} 
+}

@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // 获取设置
   const settings = await getSettings();
+  
+  // 应用主题
+  applyTheme(settings.theme);
 
   chrome.sessions.getRecentlyClosed({ maxResults: settings.count }, (sessions) => {
     if (sessions.length > 0) {
@@ -19,6 +22,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 });
+
+// 应用主题
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+}
 
 function createTabItem(tab) {
   const item = document.createElement('div');
@@ -63,7 +71,7 @@ function renderHistory(sessions) {
       // 窗口图标
       const icon = document.createElement('img');
       icon.src = chrome.runtime.getURL('icons/tab.svg');
-      icon.className = 'icon';
+      icon.className = 'icon window-icon';
       header.appendChild(icon);
 
       // 标题
@@ -116,7 +124,8 @@ function getSettings() {
     chrome.storage.sync.get({
       width: 300,
       count: 10,
-      quickRestore: false
+      quickRestore: false,
+      theme: 'auto'
     }, resolve);
   });
-} 
+}

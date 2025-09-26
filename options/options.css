@@ -1,25 +1,78 @@
 @import '/styles/checkbox.css';
 @import '/styles/ui-range.css';
+@import '/styles/theme-selector.css';
+
+:root {
+  --bg-primary: #f7f7f7;
+  --bg-secondary: #fff;
+  --text-primary: #000;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --border-color: #f5f5f5;
+  --shadow: rgba(113, 113, 113, 0.1);
+  --hover-bg: #f0f0f0;
+  --scrollbar-thumb: #d0d0d0;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted: #b0b0b0;
+  --border-color: #202020;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --hover-bg: #3a3a3a;
+  --scrollbar-thumb: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --border-color: #202020;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --hover-bg: #3a3a3a;
+    --scrollbar-thumb: #666;
+  }
+}
 
 body {
   font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
-  background: #f7f7f7;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .icon-container {
   margin: 32px;
 }
 
+/* 夜间模式下的图标容器颜色 */
+[data-theme="dark"] .icon-container {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .icon-container {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+}
+
 #options-form {
   width: 600px;
-  background-color: #fff;
-  box-shadow: rgba(113, 113, 113, 0.1) 0px 3px 7px;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow) 0px 3px 7px;
   border-radius: 6px;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 #options-form > .form-group {
@@ -39,7 +92,7 @@ body {
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: #f5f5f5;
+  background: var(--border-color);
 }
 
 .header {
@@ -51,11 +104,12 @@ body {
 label {
   font-size: 15px;
   margin-bottom: 0;
+  color: var(--text-primary);
 }
 
 .desc {
   font-size: 13px;
-  color: #888;
+  color: var(--text-muted);
   margin-top: 2px;
   user-select: none;
 }

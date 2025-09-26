@@ -1,3 +1,32 @@
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --border-color: #f0f0f0;
+  --hover-bg: #f0f0f0;
+  --scrollbar-thumb: #d0d0d0;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --border-color: #404040;
+  --hover-bg: #3a3a3a;
+  --scrollbar-thumb: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --bg-primary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --border-color: #404040;
+    --hover-bg: #3a3a3a;
+    --scrollbar-thumb: #666;
+  }
+}
+
 body {
   min-width: 150px;
   max-width: 550px;
@@ -5,6 +34,9 @@ body {
   font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #history-list{
@@ -20,7 +52,7 @@ body {
 }
 
 #history-list::-webkit-scrollbar-thumb {
-  background: #d0d0d0;
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
 
@@ -44,21 +76,21 @@ body {
 }
 
 .window-header:hover {
-  background: #f0f0f0;
+  background: var(--hover-bg);
   border-radius: 4px;
 }
 
 .window-title {
   flex: 1;
   font-weight: bold;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 .expand-btn {
   position: absolute;
   right: 0;
   padding: 6px;
-  font-size: 16px;
+  color: var(--text-secondary);
 }
 
 .expand-btn:active {
@@ -85,7 +117,7 @@ body {
 }
 
 .tab-item:hover {
-  background: #f0f0f0;
+  background: var(--hover-bg);
   border-radius: 4px;
 }
 
@@ -94,10 +126,40 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--text-primary);
 }
 
 .icon {
   width: 16px;
   height: 16px;
   vertical-align: middle;
+}
+
+/* 窗口图标颜色控制 */
+.window-icon {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* 展开按钮颜色控制 */
+.expand-btn {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* 暗色主题下的图标颜色 */
+[data-theme="dark"] .window-icon {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+[data-theme="dark"] .expand-btn {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .window-icon {
+    filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  
+  [data-theme="auto"] .expand-btn {
+    filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
 }

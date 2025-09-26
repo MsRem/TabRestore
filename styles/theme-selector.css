@@ -1,0 +1,73 @@
+/* From Uiverse.io by Pradeepsaranbishnoi */
+.theme-options {
+    display: flex;
+    position: relative;
+    height: 30px;
+    background-color: #dedede;
+    border-radius: 99px;
+    padding: 4px 5px;
+}
+
+.theme-options * {
+    z-index: 2;
+}
+
+.theme-selector input[type="radio"] {
+    display: none;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 50px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+
+/* 选中状态的颜色 */
+.theme-selector input[type="radio"]:checked + .theme-option {
+    color: #0366D6;
+}
+
+/* SVG 图标颜色控制 - 未选中状态 */
+.theme-option .theme-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* SVG 图标颜色控制 - 选中状态 */
+.theme-selector input[type="radio"]:checked + .theme-option .theme-icon {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(2000%) hue-rotate(210deg) brightness(100%) contrast(100%);
+}
+
+.theme-selector input[id="radio-1"]:checked ~ .glider {
+    transform: translateX(0);
+}
+
+.theme-selector input[id="radio-2"]:checked ~ .glider {
+    transform: translateX(100%);
+}
+
+.theme-selector input[id="radio-3"]:checked ~ .glider {
+    transform: translateX(200%);
+}
+
+.theme-icon {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    user-select: none;
+}
+
+.glider {
+    position: absolute;
+    display: flex;
+    height: 30px;
+    width: 50px;
+    background-color: #e6eef9;
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+}
