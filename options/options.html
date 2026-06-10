@@ -10,39 +10,7 @@
     <img src="../icons/icon128.png" width="80" height="80" alt="__MSG_extName__">
   </div>
   <form id="options-form">
-    <div class="form-group">
-      <div class="header">
-        <label data-i18n="widthLabel"></label>
-        <div class="desc" data-i18n="widthDesc"></div>
-      </div>
-      <div class="range-slider" id="widthSlider" style='--min:150; --max:550;'>
-        <input type="range" id="widthInput" min="150" max="550" step="50">
-        <output id="widthValue"></output>
-        <div class='range-slider__progress'></div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="header">
-        <label data-i18n="countLabel"></label>
-        <div class="desc" data-i18n="countDesc"></div>
-      </div>
-      <div class="range-slider" id="countSlider" style='--min:1; --max:25;'>
-        <input type="range" id="countInput" min="1" max="25" step="1">
-        <output id="countValue"></output>
-        <div class='range-slider__progress'></div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="header">
-        <label data-i18n="quickRestoreLabel"></label>
-        <div class="desc" data-i18n="quickRestoreDesc"></div>
-      </div>
-      <div class="quick-restore">
-        <input type="checkbox" id="checkboxInput">
-        <label for="checkboxInput" class="toggleSwitch">
-        </label>
-      </div>
-    </div>
+    <!-- 1. 主题 -->
     <div class="form-group">
       <div class="header">
         <label data-i18n="themeLabel"></label>
@@ -66,7 +34,60 @@
         </div>
       </div>
     </div>
+
+    <!-- 2. 快速恢复 -->
+    <div class="form-group">
+      <div class="header">
+        <label data-i18n="quickRestoreLabel"></label>
+        <div class="desc" data-i18n="quickRestoreDesc"></div>
+      </div>
+      <div class="quick-restore">
+        <input type="checkbox" id="checkboxInput">
+        <label for="checkboxInput" class="toggleSwitch">
+        </label>
+      </div>
+    </div>
+
+    <!-- 3-4. 可折叠区域：宽度 + 数量 -->
+    <div class="collapsible-wrapper" id="advancedWrapper">
+      <div class="collapsible-inner">
+        <div class="form-group">
+          <div class="header">
+            <label data-i18n="widthLabel"></label>
+            <div class="desc" data-i18n="widthDesc"></div>
+          </div>
+          <div class="range-slider" id="widthSlider" style='--min:150; --max:550;'>
+            <input type="range" id="widthInput" min="150" max="550" step="50">
+            <output id="widthValue"></output>
+            <div class='range-slider__progress'></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="header">
+            <label data-i18n="countLabel"></label>
+            <div class="desc" data-i18n="countDesc"></div>
+          </div>
+          <div class="range-slider" id="countSlider" style='--min:1; --max:25;'>
+            <input type="range" id="countInput" min="1" max="25" step="1">
+            <output id="countValue"></output>
+            <div class='range-slider__progress'></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="header">
+            <label data-i18n="fontSizeLabel"></label>
+            <div class="desc" data-i18n="fontSizeDesc"></div>
+          </div>
+          <div class="range-slider" id="fontSizeSlider" style='--min:10; --max:18;'>
+            <input type="range" id="fontSizeInput" min="10" max="18" step="1">
+            <output id="fontSizeValue"></output>
+            <div class='range-slider__progress'></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
+  <script src="../shared/utils.js"></script>
   <script src="options.js"></script>
 </body>
 </html> 

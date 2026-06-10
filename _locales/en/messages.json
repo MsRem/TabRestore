@@ -34,5 +34,11 @@
   },
   "themeDesc": {
     "message": "Choose interface theme style"
+  },
+  "fontSizeLabel": {
+    "message": "Font Size"
+  },
+  "fontSizeDesc": {
+    "message": "Popup font size, default 12px"
   }
 }

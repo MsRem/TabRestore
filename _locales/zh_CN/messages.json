@@ -34,5 +34,11 @@
   },
   "themeDesc": {
     "message": "选择界面主题样式"
+  },
+  "fontSizeLabel": {
+    "message": "字体大小"
+  },
+  "fontSizeDesc": {
+    "message": "弹出窗口字体大小，默认12px"
   }
 }

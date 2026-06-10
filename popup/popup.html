@@ -7,6 +7,28 @@
 </head>
 <body data-theme="auto">
   <div id="history-list"></div>
+
+  <!-- 模板：单个标签页项 -->
+  <template id="template-tab-item">
+    <div class="tab-item">
+      <img class="icon" src="" alt="">
+      <span class="title"></span>
+    </div>
+  </template>
+
+  <!-- 模板：窗口分组项 -->
+  <template id="template-window-item">
+    <div class="window-item">
+      <div class="window-header">
+        <img class="icon window-icon" src="" alt="">
+        <span class="window-title"></span>
+        <img class="icon expand-btn" src="" alt="">
+      </div>
+      <div class="window-tabs"></div>
+    </div>
+  </template>
+
+  <script src="../shared/utils.js"></script>
   <script src="popup.js"></script>
 </body>
 </html> 

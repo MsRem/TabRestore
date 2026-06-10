@@ -5,25 +5,28 @@
   --border-color: #f0f0f0;
   --hover-bg: #f0f0f0;
   --scrollbar-thumb: #d0d0d0;
+  --icon-filter: brightness(0) saturate(100%) invert(25%);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #e0e0e0;
-  --border-color: #404040;
-  --hover-bg: #3a3a3a;
-  --scrollbar-thumb: #666;
+  --bg-primary: #1e1e20;
+  --text-primary: #e3e3e7;
+  --text-secondary: #9898a0;
+  --border-color: #2c2c30;
+  --hover-bg: rgba(255, 255, 255, 0.07);
+  --scrollbar-thumb: #484852;
+  --icon-filter: brightness(0) saturate(100%) invert(85%);
 }
 
 @media (prefers-color-scheme: dark) {
   [data-theme="auto"] {
-    --bg-primary: #2d2d2d;
-    --text-primary: #ffffff;
-    --text-secondary: #e0e0e0;
-    --border-color: #404040;
-    --hover-bg: #3a3a3a;
-    --scrollbar-thumb: #666;
+    --bg-primary: #1e1e20;
+    --text-primary: #e3e3e7;
+    --text-secondary: #9898a0;
+    --border-color: #2c2c30;
+    --hover-bg: rgba(255, 255, 255, 0.07);
+    --scrollbar-thumb: #484852;
+    --icon-filter: brightness(0) saturate(100%) invert(85%);
   }
 }
 
@@ -130,36 +133,13 @@ body {
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
+  width: 1.15em;
+  height: 1.15em;
   vertical-align: middle;
 }
 
-/* 窗口图标颜色控制 */
-.window-icon {
-  filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-}
-
-/* 展开按钮颜色控制 */
+/* 图标颜色统一通过 --icon-filter 变量控制 */
+.window-icon,
 .expand-btn {
-  filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-}
-
-/* 暗色主题下的图标颜色 */
-[data-theme="dark"] .window-icon {
-  filter: brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-}
-
-[data-theme="dark"] .expand-btn {
-  filter: brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-}
-
-@media (prefers-color-scheme: dark) {
-  [data-theme="auto"] .window-icon {
-    filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
-  
-  [data-theme="auto"] .expand-btn {
-    filter: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
+  filter: var(--icon-filter);
 }
